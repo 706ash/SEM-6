@@ -7,7 +7,7 @@ def goal_test(current, goal):
 
 
 def traversal(closed):
-    print("Transversal: ", end="")
+    print("Traversal ", end="")
 
     for i in range(len(closed)):
         print(closed[i][0], end=" ")
@@ -15,7 +15,7 @@ def traversal(closed):
             print("-->", end=" ")
   
     
-def bfs(graph):
+def dfs(graph):
     open = []
     closed = []
     
@@ -62,4 +62,5 @@ def input_graph():
 
 if __name__ == "__main__":
     graph = input_graph()
-    bfs(graph)
+    dfs(graph)
+    print()
