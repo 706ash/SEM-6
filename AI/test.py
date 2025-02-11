@@ -1,19 +1,23 @@
-open = [['A', None, 0],['B', 'A', 2],['C', 'B', -1]]
-min = open[0]
-for i in range(1, len(open)):
-    if open[i][2] < min[2]:
-        min = open[i]
-print(min[0])
+def goal_list_function():
+    graph = {
+        'S': [['A', 'B', 'C'], -1],
+        'A': [['D','E'], 2],
+        'B': [['F','G'], 6],
+        'C': [['H'], 5],
+        'D': [[], 10],
+        'E': [[], 8],
+        'F': [[], 10],
+        'G': [[], 14],
+        'H': [['I'], 7],
+        'I': [['K', 'L', 'M'], 5],
+        'K': [[], 1],
+        'L': [[], 0],
+        'M': [[], 2],
+    }
+    goal_node_heuristic = min(graph.values(), key = lambda x: x[1])[1]
+    print(goal_node_heuristic)
+    goal_nodes = [k for k, v in graph.items() if v[1] == goal_node_heuristic]    
+    return goal_nodes
 
-# graph = {
-#     'A': [['B', 'C'], 6],
-#     'B': [['D', 'E'], 4],
-#     'C': [['F', 'G'], 5],
-#     'D': [[], 3],
-#     'E': [['H'], 2],
-#     'F': [[], 3],
-#     'G': [[], 4],
-#     'H': [[], 1]  # Goal Node
-#     }
-# current = 'A'
-# print([[n, current, graph[n][1]] for n in graph[current][0]])
+
+print(goal_list_function())
