@@ -62,16 +62,131 @@ def steepest_ascent_hill_climbing(graph, a):
 
 
 def input_graph():
-    graph = {}
     
+    # graph = {
+    # "A": [["B", "C"], 50],
+    # "B": [["D", "E"], 40],
+    # "C": [["F"], 30],
+    # "D": [[], 45],
+    # "E": [[], 20],
+    # "F": [[], 25]
+    # }
+
+    # graph = {
+    # "A": [["B"], 5],   # Node A has child B and heuristic value 5
+    # "B": [["C"], 4],   # Node B has child C and heuristic value 4
+    # "C": [["D"], 3],   # Node C has child D and heuristic value 3
+    # "D": [["E"], 2],   # Node D has child E and heuristic value 2
+    # "E": [[], 1]     # Node E has no children and heuristic value 1
+    # }
+
+    # graph = {
+    # "A": [["B", "C"], 3],  # Node A has children B and C, and heuristic value 3
+    # "B": [[], 3],          # Node B has no children and heuristic value 3
+    # "C": [[], 3]           # Node C has no children and heuristic value 3
+    # }
+
+    # graph = {
+    # "A": [["B", "C"], 2],  # Node A has children B and C, and heuristic value 2
+    # "B": [["C"], 3],       # Node B has child C and heuristic value 3
+    # "C": [[], 4]          # Node C has no children and heuristic value 4
+    # }
+
+    # graph = {
+    # "A": [["B", "C"], 5],  # Node A has children B and C, and heuristic value 5
+    # "B": [[], 6],          # Node B has no children and heuristic value 6
+    # "C": [["D"], 4],       # Node C has child D and heuristic value 4
+    # "D": [[], 5]          # Node D has no children and heuristic value 5
+    # }
+    
+    # graph = {
+    # "A": [["B", "C"], 5],  # Node A has children B and C, and heuristic value 5
+    # "B": [["D"], 2],       # Node B has child D and heuristic value 2
+    # "D": [[], 1],          # Node D has no children and heuristic value 1
+    # "C": [[], 4]           # Node C has no children and heuristic value 4
+    # }
+
+    # graph = {
+    # "A": [["B", "C"], 5],  # Node A has children B and C, and heuristic value 5
+    # "B": [["D"], 6],       # Node B has child D and heuristic value 6
+    # "C": [["E"], 7],       # Node C has child E and heuristic value 7
+    # "E": [[], 7]           # Node E has no children and heuristic value 7
+    # }
+
+    # graph = {
+    # "A": [["B", "C"], 10],  # Start node
+    # "B": [["D", "E"], 15],  # Local maximum
+    # "C": [["F"], 12],  
+    # "D": [[], 17],  # A better path but not reachable from local max
+    # "E": [[], 14],  
+    # "F": [["G"], 20],  # Global maximum (should be reached but isn't)
+    # "G": [[], 25]  # Best state
+    # }
+
+    # graph = {
+    # "A": [["B", "C"], 50],  # Start node
+    # "B": [["D", "E"], 30],  # Leads to a plateau
+    # "C": [["F"], 40],  
+    # "D": [["G", "H"], 20],  # All have the same heuristic (plateau)
+    # "E": [["I"], 20],  
+    # "F": [["J"], 25],  
+    # "G": [[], 20],  # Plateau
+    # "H": [[], 20],  # Plateau
+    # "I": [["K"], 10],  # The actual best path
+    # "J": [[], 15],  
+    # "K": [[], 5]  # Global minimum (not reached)
+    # }
+
+    # graph = {
+    # "A": [["B", "C"], 10],  # Start node
+    # "B": [["D"], 15],  
+    # "C": [["E"], 20],  
+    # "D": [[], 25],  # Intermediate high value
+    # "E": [["G"], 30],  # Higher than D
+    # "G": [[], 40]  # Goal node (Global Maximum)
+    # }
+
+    # graph = {
+    # "A": [["B", "C"], 10],  # Start node
+    # "B": [["D", "E"], 20],  # Plateau begins
+    # "C": [["F"], 15],  
+    # "D": [["G"], 20],  # Plateau (same heuristic as B and E)
+    # "E": [["H"], 20],  # Plateau
+    # "F": [[], 18],  
+    # "G": [[], 20],  # Plateau
+    # "H": [[], 20]  # Plateau
+    # }
+
+    # graph = {
+    # "A": [["B", "C"], 10],  # Start node
+    # "B": [["D"], 20],  # Plateau begins
+    # "C": [["E"], 15],  
+    # "D": [[], 20],  # Plateau (same heuristic as B)
+    # "E": [[], 25]   # Better option, but unreachable
+    # }
+
+    # graph = {
+    # "A": [["B"], 10],  # Node A has child B and heuristic value 10
+    # "B": [[], 9]       # Node B has no children and heuristic value 9
+    # }
+
+    # graph = {
+    # "A": [["B", "C"], 15],  # Node A has children B, C and heuristic value 15
+    # "B": [["D"], 12],       # Node B has child D and heuristic value 12
+    # "C": [["E"], 10],       # Node C has child E and heuristic value 10
+    # "D": [[], 8],           # Node D has no children and heuristic value 8
+    # "E": [[], 5]            # Node E has no children and heuristic value 5
+    # }
+
     graph = {
-    "A": [["B", "C"], 1],
-    "B": [["D"], 2],
-    "C": [["R", "S"], 4],
-    "D": [[], 7],
-    "R": [[], 50],
-    "S": [[], 12]
+    "A": [["B", "C"], 2],   # Node A has children B, C and heuristic value 2
+    "B": [["D"], 3],        # Node B has child D and heuristic value 3
+    "C": [["E"], 1],        # Node C has child E and heuristic value 1
+    "D": [[], 0],           # Node D has no children and heuristic value 0
+    "E": [[], 0]            # Node E has no children and heuristic value 0
     }
+
+
     print("Enter the number of nodes:", len(graph))
     print()
 
@@ -90,10 +205,7 @@ def input_graph():
     # MINIMIZATION GRAPH
     
 
-    # MAXIMIZATION GRAPH
-    
-
-    
+    # MAXIMIZATION GRAPH 
 
         
     return graph
