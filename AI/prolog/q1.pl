@@ -1,0 +1,24 @@
+fisherman(john).
+catches(john, tuna).
+sells(john, tuna).
+sells(alex, vegetables).
+sells_at(john, market).
+sells_at(alex, market).
+eatable(tuna).
+eatable(vegetables).
+wakes_up_morning(alex).
+
+wakes_up_morning(Person) :-
+    fisherman(Person).
+
+food_vendor(Person) :-
+    sells(Person, Item),
+    sell_at(Person, market),
+    eatable(Item).
+
+earns_money(Person) :-
+    food_vendor(Person).
+
+happy(Person) :-
+    earns_money(Person).
+

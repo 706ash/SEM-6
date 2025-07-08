@@ -28,6 +28,7 @@ def dfs(graph):
         current = open[0][0]
         closed.append(open[0])
         del open[0]
+        
         if goal_test(current, goal_node):
             print("\n\nGoal found\n")
             traversal(closed)
